@@ -1,0 +1,227 @@
+{
+  "version": "0.1.0",
+  "name": "mm_escrow",
+  "constants": [
+    {
+      "name": "SEED",
+      "type": "string",
+      "value": "\"mm_escrow\""
+    }
+  ],
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "seller",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "xMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "yMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sellersXToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrowedXTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "xAmount",
+          "type": "u64"
+        },
+        {
+          "name": "yPrice",
+          "type": "u64"
+        },
+        {
+          "name": "productSeed",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "accept",
+      "accounts": [
+        {
+          "name": "buyer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "escrow",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "escrowedXTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sellersYTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "buyersXTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "buyersYTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "instructions",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "xRequested",
+          "type": "u64"
+        },
+        {
+          "name": "yAmount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "accounts": [
+        {
+          "name": "seller",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "escrowedXTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "escrow",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sellersXToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Escrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "escrowedXTokens",
+            "type": "publicKey"
+          },
+          {
+            "name": "yPrice",
+            "type": "u64"
+          },
+          {
+            "name": "yMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "productSeed",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "PriceMismatch",
+      "msg": "The amount offered does not match the initial token price"
+    },
+    {
+      "code": 6001,
+      "name": "NotEnoughFundsInVault",
+      "msg": "Not enough funds in ecrow's vault"
+    },
+    {
+      "code": 6002,
+      "name": "SignatureAuthorityMismatch",
+      "msg": "Signature authority mismatch"
+    },
+    {
+      "code": 6003,
+      "name": "MissingSignature",
+      "msg": "Missing Signature"
+    }
+  ],
+  "metadata": {
+    "address": "5RwVJFUYq1aTBtivpHDt6cPdHQPJcS82tx3FsGnQQ3vD"
+  }
+}

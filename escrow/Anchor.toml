@@ -1,0 +1,21 @@
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.devnet]
+mm_escrow = "5RwVJFUYq1aTBtivpHDt6cPdHQPJcS82tx3FsGnQQ3vD"
+
+[programs.localnet]
+mm_escrow = "5RwVJFUYq1aTBtivpHDt6cPdHQPJcS82tx3FsGnQQ3vD"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "/Users/echo/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
