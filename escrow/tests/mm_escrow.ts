@@ -16,7 +16,7 @@ import {
   LAMPORTS_PER_SOL,
   SystemProgram,
 } from "@solana/web3.js";
-import wallet from "./ernest_key.json";
+import wallet from "./key.json";
 
 const assert = require("assert");
 

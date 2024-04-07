@@ -6,7 +6,7 @@ import {
   clusterApiUrl,
   Commitment,
 } from "@solana/web3.js";
-import adminWallet from "../ernest_key.json";
+import adminWallet from "../key.json";
 import { getProvider } from "@project-serum/anchor";
 import mintedData from '../pages/mint.json';
 

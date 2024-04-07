@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Keypair } from "@solana/web3.js";
 import CheckoutButtonStripe from "@/components/checkoutStripe";
-import walletKeypair from "../ernest_key.json";
+import walletKeypair from "../key.json";
 import CheckoutButtonAccept from '@/components/checkoutButtonAccept';
 import { ProductCard } from '@/components/productCard';
 import { PRODUCTS } from '@/costants/costants';

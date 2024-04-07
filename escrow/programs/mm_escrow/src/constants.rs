@@ -6,5 +6,5 @@ pub const ED25519_PROGRAM_ID: &str = "Ed25519SigVerify11111111111111111111111111
 
 pub mod signing_authority {
     use super::*;
-    declare_id!("FexVSkWTomAziTdHs2E4FyDougLbCEZXjHLn4vaPhmiB");
+    declare_id!("CaRLggMLuz9mYKwkv76Q5hXJvBgu9vqKyxgnxNZEDeHj");
 }
